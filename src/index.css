@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+ @tailwind base;
+ 
+ @tailwind components;
+  
+ @tailwind utilities;
+
+ .bt{
+ padding: 5px;
+ border-radius: 5px;
+ background: linear-gradient(135deg, #8E2DE2,#4a00e0);
+ }
+body{
+    overflow-x: hidden;
+    font-family: 'Lora', serif;
+}
+.active{
+    color: blue;
+}
