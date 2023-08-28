@@ -29,7 +29,7 @@ const Header = () => {
             <div className='bg-gradient-to-r from-blue-600 to-blue-400 w-full  left-0 p-2 flex justify-between md:items-center'>
                 <div className="leftside w-20 h-10 flex">
                     <Link to='/'><img src="https://tse4.mm.bing.net/th?id=OIP.t0Z7dfyadoYtTCszkckC4wHaE7&pid=Api&P=0&h=180" className='w-full h-full' alt="logo" /></Link>
-                <div className="handlemenu absolute right-1.5" onClick={() => setMenu(!menu)}>
+                <div className="handlemenu absolute right-1.5 cursor-pointer" onClick={() => setMenu(!menu)}>
                     {menu ? <i class=" sm:hidden fa-solid fa-xmark"></i> : <i class="sm:hidden fa-solid fa-bars"></i>}
                 </div>
                 </div>

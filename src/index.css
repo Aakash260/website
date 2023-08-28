@@ -17,3 +17,9 @@ body{
 .active{
     color: blue;
 }
+
+.feature1:hover .contenthover{
+    left: 0;
+}
+
+ 
