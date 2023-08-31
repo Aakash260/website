@@ -7,7 +7,12 @@ const initialState={
     all_products:[],
 filter_products:[],
 grid_view:false,
-sorting_value:"lowest"
+sorting_value:"lowest",
+filters:{
+text:'',
+category:'all',
+company:'all'
+}
 }
 
 
@@ -15,7 +20,7 @@ const FilterProvider=({children})=>{
 
 
 const {products}=useProductContext();
-// console.log("🚀 ~ file: filtercontext.jsx:8 ~ FilterProvider ~ products:", products)
+  
 const [state,dispatch]=useReducer(reducer,initialState);
 
 const set_gridview=()=>{
@@ -25,14 +30,23 @@ const set_listview=()=>{
     dispatch({type:"SETlist_view"})
 }
 
-const sorting=()=>{
-    dispatch({type:"Sorted_value"})
+const sorting=(event)=>{
+    
+    dispatch({type:"Sorted_value",payload:event.target.value})
 }
 //sorting from all product 
 useEffect(() => {
-   dispatch({type:'SORTING_PROD',payload:products})
-// console.log('hi')
-}, [state.sorting_value])
+    dispatch({type:'SORTING_PROD',payload:products})
+     
+}, [products,state.sorting_value,])
+
+const input_search=(event)=>{  
+ let name=event.target.name;
+ let value=event.target.value;
+    dispatch({type:"input_search_value",payload:{name,value,}});
+    dispatch({type:"FilterData",payload:products});
+
+}
 
 
 useEffect(() => {
@@ -40,7 +54,7 @@ dispatch({type:"Load_filter_products",payload:products})
 }, [products])
 
 
-return <FilterContext.Provider value={{...state,set_gridview,set_listview,sorting}}>
+return <FilterContext.Provider value={{...state,set_gridview,set_listview,sorting,input_search}}>
     {children}
 </FilterContext.Provider>
 

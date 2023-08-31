@@ -16,7 +16,7 @@ const Gridviewlist = (item) => {
   return (
     <NavLink to={`/singleproducts/${id}`}>
     <div className="feature1 relative overflow-hidden">
-     <div className="flex items-center">
+     <div className="  md:flex md:items-center ">
                       
              <img className='py-5 md:py-[0] w-100% h-40' src={image} alt="phone" />
              <div className="infoproduct md:ml-10">

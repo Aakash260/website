@@ -15,7 +15,7 @@ const ProductDisplay = () => {
     <div className="gridContianer">
       <div className="grid">
         <div className="productpagenav flex justify-between items-center p-2">
-          <div className="leftsideflex gap-2">
+          <div className="leftside flex gap-2">
             <button onClick={set_gridview}><BsFillGrid3X2GapFill size={30}  /></button>
             <button onClick={set_listview}><BiGridVertical size={30} /></button>
           </div>
@@ -50,7 +50,7 @@ const ProductDisplay = () => {
         }
 
         {!grid_view &&
-          <div className="productshows my-4 grid gap-4"
+          <div className="productshows my-4 grid gap-4 "
           >
             {filter_products.map((item) => {
               return <Gridviewlist key={item.id} {...item} />
