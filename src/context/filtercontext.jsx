@@ -11,7 +11,11 @@ sorting_value:"lowest",
 filters:{
 text:'',
 category:'all',
-company:'all'
+company:'all',
+colors:'all',
+max_price:0,
+price:0,
+min_price:0
 }
 }
 
@@ -34,6 +38,11 @@ const sorting=(event)=>{
     
     dispatch({type:"Sorted_value",payload:event.target.value})
 }
+
+const clearFilter=()=>{
+    dispatch({type:"clearFilter"})
+}
+
 //sorting from all product 
 useEffect(() => {
     dispatch({type:'SORTING_PROD',payload:products})
@@ -54,7 +63,7 @@ dispatch({type:"Load_filter_products",payload:products})
 }, [products])
 
 
-return <FilterContext.Provider value={{...state,set_gridview,set_listview,sorting,input_search}}>
+return <FilterContext.Provider value={{...state,set_gridview,set_listview,sorting,input_search,clearFilter}}>
     {children}
 </FilterContext.Provider>
 
