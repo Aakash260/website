@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {NavLink} from 'react-router-dom'
+import { useCartContext } from '../context/cart_context'
 const Header = () => {
-
+    const {cart} =useCartContext()
+  
     const menu_button = [
         {
             name: 'Home',
@@ -41,8 +43,8 @@ const Header = () => {
                 
                 <Link to='/cart'><div class="relative">
                 <i class="fas fa-shopping-cart text-3xl"></i>
-                  <div class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs">
-                    3  
+                 <div class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs">
+                   {cart.length}
                   </div>
                 </div></Link>
                     <button className=' shadow-lg rounded-sm border p-2 border-black bg-gradient-to-r from-blue-600 to-blue-400'>

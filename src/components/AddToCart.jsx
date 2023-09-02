@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import CartAmountToggle from './CartAmountToggle';
+import { NavLink } from 'react-router-dom';
+import { useCartContext } from '../context/cart_context';
 const AddToCart = ({ product }) => {
     const { id, colors, stock } = product;
-
+const {addToCart}=useCartContext()
     const [color, setColor] = useState(colors[0]);
     const [amount, setAmount] = useState(1);
     const setIncrease = () => {
@@ -34,9 +36,11 @@ const AddToCart = ({ product }) => {
                 setDecrease={setDecrease}
                 setIncrease={setIncrease}
             />
-            <button class=" my-2 w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Add To Cart
-            </button>
+            <NavLink to='/cart' onClick={()=>addToCart(id, color, amount,product)}>
+                <button class=" my-2 w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Add To Cart
+                </button>
+            </NavLink>
         </>
     )
 }

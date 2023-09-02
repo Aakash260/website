@@ -162,7 +162,7 @@ const filterreducer = (state, action) => {
 
 
       default:
-         state
+         return state
 
    }
 
