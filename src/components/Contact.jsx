@@ -1,6 +1,9 @@
+import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
 
 const Contact = () => {
+  const {isAuthenticated,user}=useAuth0()
+  
   return (
     <div className='mt-24'>
       <h3 className='pb-10'>Contact Page</h3>
@@ -24,6 +27,7 @@ const Contact = () => {
           <input
             type="text"
             name="name"
+            value={isAuthenticated?user.name:""}
             className="mt-1 px-4 py-2 w-full border rounded-md focus:ring focus:ring-indigo-200"
             placeholder="Your Name"
           />
@@ -33,6 +37,7 @@ const Contact = () => {
           <input
             type="email"
             name="email"
+            value={isAuthenticated?user.email:""}
             className="mt-1 px-4 py-2 w-full border rounded-md focus:ring focus:ring-indigo-200"
             placeholder="you@example.com"
           />

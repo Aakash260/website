@@ -6,7 +6,7 @@ const FeaturedProducts = () => {
 
     if (isLoading) {
         // shimmering effect
-        return  <i class="fa-solid fa-spinner fa-shake"></i>
+        return  <i className="fa-solid fa-spinner fa-shake"></i>
     }
 
     return (

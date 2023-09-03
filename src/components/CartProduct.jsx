@@ -1,8 +1,8 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import CartAmountToggle from './CartAmountToggle'
 import { useCartContext } from '../context/cart_context';
 const CartProduct = ({id,name,color,amount,image,price}) => {
-     const {removeItem} =useCartContext();
+     const {removeItem,setIncrease,setDecrease} =useCartContext();
    
     const formatToIndianCurrency = (number) => {
         const formatter = new Intl.NumberFormat('en-IN', {
@@ -14,34 +14,27 @@ const CartProduct = ({id,name,color,amount,image,price}) => {
         return formatter.format(number/100);
       };
 
-    //   const [amount, setAmount] = useState(1);
-    //   const setIncrease = () => {
-    //       amount >= stock ? setAmount(stock) : setAmount(amount + 1)
-    //   }
-    //   const setDecrease = () => {
-    //       amount > 1 ? setAmount(amount - 1) : setAmount(1)
-    //   }
+    
 
   return (
-    <div className='flex m-4'>
-    <div class="w-2/5">  
-            <div class="w-20">
-              <img class="h-24" src={image} alt=""/>
+    <div className='flex m-4 gap-4 '>
+    <div className="w-2/5">  
+            <div className="w-20">
+              <img className="h-24" src={image} alt=""/>
             </div>
-            <div class="flex flex-col justify-between ml-4 flex-grow">
-              <span class="font-bold text-sm">{name}</span>
-              <div className='text-sm'>Color:<span class="font-bold text-sm rounded-full" style={{backgroundColor:color ,color:color}}>C</span></div>
+            <div className="flex flex-col justify-between ml-4 flex-grow">
+              <span className="font-bold text-sm">{name}</span>
+              <div className='text-sm'>Color:<span className="font-bold text-sm rounded-full" style={{backgroundColor:color ,color:color}}>C</span></div>
              
-              <button class="font-semibold hover:text-red-500 text-gray-500 text-xs" onClick={()=>removeItem(id)}>Remove</button>
+              <button className="font-semibold hover:text-red-500 text-gray-500 text-xs" onClick={()=>removeItem(id)}>Remove</button>
             </div>
           </div>
-          <div class=" w-1/5">
-            <CartAmountToggle  amount={amount}
-                 />
+          <div className=" w-1/5">
+            <CartAmountToggle  amount={amount} setIncrease={()=>setIncrease(id)} setDecrease={()=>setDecrease(id)}  />
      
           </div>
-          <span class="text-center w-1/5 font-semibold text-sm">{formatToIndianCurrency(price)}</span>
-          <span class="text-center w-1/5 font-semibold text-sm">{formatToIndianCurrency(price*amount)}</span>
+          <span className="text-center w-1/5 font-semibold text-sm">{formatToIndianCurrency(price)}</span>
+          <span className="text-center w-1/5 font-semibold text-sm">{formatToIndianCurrency(price*amount)}</span>
     </div>
   )
 }

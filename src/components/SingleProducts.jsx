@@ -28,7 +28,7 @@ useEffect(() => {
 }, [])
 if(isSingleLoading){
  
-  return  <i class="fa-solid fa-spinner fa-shake"></i>
+  return  <i className="fa-solid fa-spinner fa-shake"></i>
 }
   return (<>
   
@@ -39,17 +39,17 @@ if(isSingleLoading){
    <SingleImage image={image}/>
     </div>
     <div className="grid2">
-    <div class="grid grid-cols-1 productpagedescription">
-  <div class="bg-gray-200 ">{name}</div>
-  {/* <div class="bg-gray-300 "><span className='font-bold'>Rating:</span>{stars}</div> */}
+    <div className="grid grid-cols-1 productpagedescription">
+  <div className="bg-gray-200 ">{name}</div>
+  {/* <div className="bg-gray-300 "><span className='font-bold'>Rating:</span>{stars}</div> */}
   <Starsreview stars={stars}/>
-  <div class="bg-gray-200 "><span className="font-bold">Reviews:</span>{reviews} (reviews)</div>
-  <div class="bg-gray-300 "><span className='font-bold'>MRP:</span> <del>60000</del> </div>
-  <div class="bg-gray-300 "><span className='font-bold'>Sale Price:</span>{formatToIndianCurrency(price)}</div>
-  <div class="bg-gray-200 "><span className='font-bold'>Description:</span>{description}</div>
-  <div class="bg-gray-300 "><span className='font-bold'>Availability:</span>{stock?stock:"Unavailable"}</div>
-  <div class="bg-gray-200 "><span className='font-bold'> Id:</span>{alias}</div>
-  <div class="bg-gray-300 "><span className='font-bold'>Brand:</span>{company}</div>
+  <div className="bg-gray-200 "><span className="font-bold">Reviews:</span>{reviews} (reviews)</div>
+  <div className="bg-gray-300 "><span className='font-bold'>MRP:</span> <del>60000</del> </div>
+  <div className="bg-gray-300 "><span className='font-bold'>Sale Price:</span>{formatToIndianCurrency(price)}</div>
+  <div className="bg-gray-200 "><span className='font-bold'>Description:</span>{description}</div>
+  <div className="bg-gray-300 "><span className='font-bold'>Availability:</span>{stock?stock:"Unavailable"}</div>
+  <div className="bg-gray-200 "><span className='font-bold'> Id:</span>{alias}</div>
+  <div className="bg-gray-300 "><span className='font-bold'>Brand:</span>{company}</div>
   <hr className='w-full bg-black mt-2 h-1 ' />
   {stock>0 && <AddToCart product={singleProduct}/>}
 </div>  

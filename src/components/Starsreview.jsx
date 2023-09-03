@@ -7,7 +7,7 @@ const Starsreview = ({stars}) => {
     let number=indx+0.5
  
     return (
-      <div key={indx} class="bg-gray-300 ">
+      <div key={indx} className="bg-gray-300 ">
      
       {stars>=indx+1?<FaStar/>:stars>=number?<FaStarHalfAlt/>:<AiOutlineStar/>}
       </div>

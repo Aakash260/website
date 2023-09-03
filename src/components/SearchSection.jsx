@@ -43,14 +43,14 @@ const commonArray=(data,property)=>{
       
    return (
     <div className="searchsection">
-      <div className="grid text-sm md:place-items-center gap-2 ">
+      <div className="grid text-sm md:place-items-center gap-2  ">
         <form className="search relative" onSubmit={(e)=>e.preventDefault()}>
           <input type="text" className='border border-black mt-2 w-full md:mr-4' placeholder='search...' onChange={input_search} value={text} name='text' />
           <div className='absolute top-2 right-0'>🔍</div>
         </form>
         <div className="category">
-          <h3 className='text-center my-2'>Category</h3>
-          <div className="category_container grid col-span-1 btn-group">
+          <h3 className='text-center my-2 font-bold'>Category</h3>
+          <div className="category_container grid col-span-1 btn-group ">
           {
             categoryData.map((item,index)=>{
               return  <button key={index}
@@ -67,7 +67,7 @@ const commonArray=(data,property)=>{
         </div>
 
         <div className="companyCategory">
-        <h3 className='text-center my-2'>Company</h3>
+        <h3 className='text-center my-2 font-bold'>Company</h3>
           <div className="category_container grid col-span-1 btn-group">
           {
             companyData.map((item,index)=>{
@@ -83,7 +83,7 @@ const commonArray=(data,property)=>{
           </div>
         </div>
         <div className="category">
-          <h3 className='text-center my-2'>Colors</h3>
+          <h3 className='text-center my-2 font-bold'>Colors</h3>
           <div className="category_container flex gap-2 items-center">
           {
             all_colors.map((item,index)=>{
@@ -109,12 +109,12 @@ const commonArray=(data,property)=>{
           </div>
         </div>
         <div className="price_category md:grid place-items-center">
-          <p>Price</p>
+          <p className='font-bold'>Price</p>
           <h3>{formatToIndianCurrency(price)}</h3>
           <input type="range" name="price" className='w-[97px]' max={max_price} min={min_price} value={price} onChange={input_search} />
         </div>
         <div className="clearbutton" onClick={clearFilter} >
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
   Clear 
 </button>
         </div>

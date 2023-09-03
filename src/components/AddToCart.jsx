@@ -32,12 +32,13 @@ const {addToCart}=useCartContext()
                 }</p>
             </div>
             Quantity:  <CartAmountToggle
+           
                 amount={amount}
                 setDecrease={setDecrease}
                 setIncrease={setIncrease}
             />
             <NavLink to='/cart' onClick={()=>addToCart(id, color, amount,product)}>
-                <button class=" my-2 w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button className=" my-2 w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Add To Cart
                 </button>
             </NavLink>

@@ -14,7 +14,7 @@ const getlocalCart=()=>{
 const initialState={
 cart:getlocalCart(),
 total_item:"",
-total_amount:"",
+total_price:"",
 shipping_fee:50000,
 }
 
@@ -35,12 +35,25 @@ const removeItem=(id) => {
 const clearCart=()=>{
     dispatch({type:'clear_cart'})
 }
+
+const setIncrease=(id)=>{
+    dispatch({type:'setIncrease',payload:id})
+}
+
+const setDecrease=(id)=>{
+    dispatch({type:'setDecrease',payload:id})
+} 
+
+
+
 useEffect(() => {
+    dispatch({type:'Total_item'})
+    dispatch({type:'Total_price'})
     localStorage.setItem('mycart',JSON.stringify(state.cart))
   }, [state.cart])
   
 
-return <CartContext.Provider value={{...state,addToCart,removeItem,clearCart}}>
+return <CartContext.Provider value={{...state,addToCart,removeItem,clearCart,setIncrease,setDecrease}}>
     {children}
     </CartContext.Provider>
 }
