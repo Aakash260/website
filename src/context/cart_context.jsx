@@ -3,12 +3,15 @@ import reducer from '../reducers/cart_reducers'
 const CartContext=createContext();
 
 const getlocalCart=()=>{
-    let newCart=localStorage.getItem('mycart');
-    if(newCart===[]){
-        return []
-    }else{
-        return JSON.parse(newCart)
-    }
+       let newCart=localStorage.getItem('mycart');
+    // if(newCart===[]){
+    //     return []
+    // }else{
+    //     return JSON.parse(newCart)
+    // }
+    const parseData=JSON.parse(newCart)
+    if(!Array.isArray(parseData)) return [];
+    return parseData
 }
 
 const initialState={

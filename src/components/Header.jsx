@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Header = () => {
     const { total_item } = useCartContext()
     const { loginWithRedirect, logout, isAuthenticated,user } = useAuth0();
-    console.log("🚀 ~ file: Header.jsx:9 ~ Header ~ user:", user)
+     
     const menu_button = [
         {
             name: 'Home',
@@ -43,13 +43,26 @@ const Header = () => {
                     {menu_button.map((item, i) => {
                         return <NavLink to={item.link} key={i}>{item.name}</NavLink>
                     })}
-
+ { isAuthenticated && 
+         <div className='grid'>
+             <img
+                src={user.picture}
+                className="rounded-full w-[30px] h-[30px] "
+             
+                alt=""
+                loading="lazy" />
+                <span className='text-[8px]'>{user.given_name}</span>
+         </div>
+            
+            }
                     <Link to='/cart'><div className="relative">
                         <i className="fas fa-shopping-cart text-3xl"></i>
                         <div className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs">
                             {total_item}
                         </div>
                     </div></Link>
+
+
 
                     {
                         isAuthenticated ?
@@ -63,18 +76,7 @@ const Header = () => {
 
 
 
-        { isAuthenticated && 
-         <div className='grid'>
-             <img
-                src={user.picture}
-                className="rounded-full w-[30px] h-[30px] "
-             
-                alt=""
-                loading="lazy" />
-                <span className='text-[8px]'>{user.given_name}</span>
-         </div>
-            
-            }
+       
             </div>
                 </div>
 
